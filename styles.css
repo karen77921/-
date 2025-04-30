@@ -87,3 +87,10 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+.menu-btn, .enter {
+  transition: transform 0.1s ease;
+}
+
+.menu-btn:active, .enter:active {
+  transform: scale(0.95);
+}
