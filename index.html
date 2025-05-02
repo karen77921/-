@@ -3,57 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>十分零八秒</title>
+  <title>十分钟八秒</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-      margin: 0 auto 10px;
-    }
-  </style>
 </head>
-  <audio id="bgm" loop>
-  <source src="https://files.catbox.moe/76z7ns.mp3" type="audio/mpeg">
-  您的浏览器不支持 audio 标签。
-</audio>
-
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const bgm = document.getElementById('bgm');
-
-    // 尝试自动播放
-    const playAttempt = bgm.play();
-    if (playAttempt !== undefined) {
-      playAttempt
-        .then(() => {
-          console.log("✅ 音乐自动播放成功");
-        })
-        .catch(() => {
-          console.log("❌ 自动播放失败，等待用户操作");
-
-          // 如果失败，点击任意位置播放
-          const unlock = () => {
-            bgm.play();
-            document.removeEventListener('click', unlock);
-          };
-          document.addEventListener('click', unlock);
-        });
-    }
-  });
-</script>
 <body>
   <div class="container">
-    <!-- 头像 -->
-    <img class="avatar" alt="头像" src="avatar.png" />
-
-    <!-- 音乐播放按钮（防止自动播放失败） -->
-    <button onclick="document.getElementById('bgm').play()" class="enter">播放音乐 🎵</button>
-
-    <h1 class="title">十分零八秒</h1>
+    <img src="avatar.png" alt="头像" class="avatar" />
+    <h1 class="title">十分钟八秒</h1>
 
     <div class="search-box">
       <input type="text" placeholder="搜索资源..." />
@@ -63,40 +19,75 @@
       <a href="index.html" class="menu-btn active">全部</a>
       <a href="album.html" class="menu-btn">专辑</a>
       <a href="drama.html" class="menu-btn">电视剧</a>
-      <a href="#" class="menu-btn">电影</a>
-      <a href="#" class="menu-btn">演唱会</a>
+      <a href="movie.html" class="menu-btn">电影</a>
+      <a href="concert.html" class="menu-btn">演唱会</a>
     </div>
 
-    <div class="section">
-      <h2>《专辑》</h2>
-      <p>Billkin 最新音乐专辑，收录多首动人情歌。</p>
-      <a href="album.html" class="enter">进入</a>
-    </div>
+    <!-- 专辑 -->
+    <a href="album.html" class="section-link">
+      <div class="section">
+        <h2>《专辑》</h2>
+        <p>Billkin 最新音乐专辑，收录多首动人情歌。</p>
+        <button class="enter">进入</button>
+      </div>
+    </a>
 
-    <div class="section">
-      <h2>《电视剧》</h2>
-      <p>泰国 BL 热剧，Billkin 饰演主角。</p>
-      <a href="drama.html" class="enter">进入</a>
-    </div>
+    <!-- 电视剧 -->
+    <a href="drama.html" class="section-link">
+      <div class="section">
+        <h2>《电视剧》</h2>
+        <p>泰国 BL 热剧，Billkin 饰演主角。</p>
+        <button class="enter">进入</button>
+      </div>
+    </a>
+
     <!-- 电影 -->
-<div class="section">
-  <h2>《电影》</h2>
-  <p>Billkin 主演电影《姥姥的外孙》，讲述一段温暖治愈的祖孙亲情故事。</p>
-  <a href="movie.html" class="enter">进入</a>
-</div>
+    <a href="movie.html" class="section-link">
+      <div class="section">
+        <h2>《姥姥的外孙》</h2>
+        <p>
+          Billkin 主演电影《姥姥的外孙》，<br />
+          讲述一段温暖治愈的祖孙亲情故事。
+        </p>
+        <button class="enter">进入</button>
+      </div>
+    </a>
 
-<!-- 演唱会 -->
-<div class="section">
-  <h2>《演唱会》</h2>
-  <p>Billkin 首个个人演唱会《Tempo》，用音乐讲述他的成长与心路。</p>
-  <a href="concert.html" class="enter">进入</a>
-</div>
+    <!-- 演唱会 -->
+    <a href="concert.html" class="section-link">
+      <div class="section">
+        <h2>《Tempo》</h2>
+        <p>
+          Billkin 首个个人演唱会 “Tempo”，<br />
+          用音乐讲述成长与热爱。
+        </p>
+        <button class="enter">进入</button>
+      </div>
+    </a>
   </div>
 
-  <!-- 🎶 背景音乐 -->
-  <audio id="bgm" autoplay loop>
-    <source src="https://files.catbox.moe/76z7ns.mp3" type="audio/mpeg">
+  <audio id="bgm" loop>
+    <source src="your-music.mp3" type="audio/mpeg" />
     您的浏览器不支持 audio 标签。
   </audio>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const bgm = document.getElementById('bgm');
+      const playAttempt = bgm.play();
+      if (playAttempt !== undefined) {
+        playAttempt
+          .then(() => console.log("✅ 音乐自动播放成功"))
+          .catch(() => {
+            console.log("❌ 自动播放失败，等待用户点击");
+            const unlock = () => {
+              bgm.play();
+              document.removeEventListener('click', unlock);
+            };
+            document.addEventListener('click', unlock);
+          });
+      }
+    });
+  </script>
 </body>
 </html>
