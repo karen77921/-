@@ -1,3 +1,4 @@
+/* === 全局基础样式 === */
 body {
   margin: 0;
   font-family: "PingFang SC", "Helvetica Neue", sans-serif;
@@ -57,18 +58,20 @@ body {
   border-radius: 20px;
   font-weight: bold;
   text-decoration: none;
-  transition: transform 0.1s ease;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.menu-btn.active {
+.menu-btn.active,
+.menu-btn:hover {
   background-color: #ff7300;
-  color: white;
+  color: #fff;
 }
 
 .menu-btn:active {
   transform: scale(0.95);
 }
 
+/* === 卡片样式 === */
 .section {
   background: white;
   border-radius: 10px;
@@ -93,6 +96,18 @@ body {
   margin-bottom: 10px;
 }
 
+.section p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.section p a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .enter {
   display: inline-block;
   background-color: #ff7300;
@@ -102,12 +117,14 @@ body {
   text-decoration: none;
   font-weight: bold;
   transition: transform 0.1s ease;
+  margin-top: 12px;
 }
 
 .enter:active {
   transform: scale(0.95);
 }
 
+/* 音乐按钮 */
 .music-btn {
   position: fixed;
   top: 20px;
@@ -120,9 +137,52 @@ body {
   cursor: pointer;
   font-weight: bold;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 999;
 }
 
+/* 页面淡入动画 */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* === 手机端适配 === */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .search-box input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .menu-btn {
+    font-size: 14px;
+    padding: 4px 10px;
+    margin: 4px;
+  }
+
+  .section {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .section p {
+    font-size: 14px;
+  }
+
+  .enter {
+    font-size: 14px;
+    padding: 4px 12px;
+  }
 }
