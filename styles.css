@@ -12,6 +12,15 @@ body {
   padding: 20px;
 }
 
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 10px;
+}
+
 .title {
   text-align: center;
   font-size: 32px;
@@ -40,28 +49,26 @@ body {
 
 .menu-btn {
   display: inline-block;
-  padding: 8px 16px;
-  margin: 4px;
-  border: 2px solid #ff7300;
-  border-radius: 20px;
   background-color: transparent;
+  border: 2px solid #ff7300;
   color: #ff7300;
+  padding: 6px 14px;
+  margin: 5px;
+  border-radius: 20px;
   font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  text-decoration: none;
+  transition: transform 0.1s ease;
 }
 
-.menu-btn.active,
-.menu-btn:hover {
+.menu-btn.active {
   background-color: #ff7300;
-  color: #fff;
+  color: white;
 }
 
 .menu-btn:active {
   transform: scale(0.95);
 }
 
-/* 卡片样式 */
 .section {
   background: white;
   border-radius: 10px;
@@ -86,13 +93,6 @@ body {
   margin-bottom: 10px;
 }
 
-.section p {
-  color: #333;
-  font-size: 16px;
-  line-height: 1.6;
-  margin: 0;
-}
-
 .enter {
   display: inline-block;
   background-color: #ff7300;
@@ -101,7 +101,6 @@ body {
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
-  margin-top: 12px;
   transition: transform 0.1s ease;
 }
 
@@ -109,40 +108,21 @@ body {
   transform: scale(0.95);
 }
 
-/* 音乐播放按钮 */
 .music-btn {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
-  padding: 6px 12px;
   background-color: #ff7300;
   color: white;
-  border-radius: 6px;
-  font-weight: bold;
+  padding: 6px 12px;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
-  z-index: 999;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* 页面淡入动画 */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-.section p {
-  color: #333;           /* 设置文字为深灰色 */
-  font-size: 16px;
-  line-height: 1.6;
-  margin: 0;
-  text-decoration: none; /* 取消下划线 */
-}
-
-.section p a {
-  color: inherit;         /* 链接颜色继承正文颜色 */
-  text-decoration: none;  /* 链接不要下划线 */
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
